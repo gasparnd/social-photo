@@ -1,8 +1,21 @@
-import React from 'react'
+import React, { useState } from 'react'
+
+import useFetchData from '../../hooks/useFetchData'
 
 import './Header.css'
 
 const Header = props => {
+
+	const [ search, setSearch ] = useState('')
+
+	const handleClick = e => {
+		
+	}
+
+	const handleChange = e => {
+		setSearch(e.target.value)
+	}
+
 	return(
 		<div className="header-wraper">
 			<a href="https://photography-library.gasparnd.vercel.app/" className="home-item">
@@ -12,8 +25,8 @@ const Header = props => {
 				<div className="search-ico">
 					<i className="icon-search"></i>
 				</div>
-				<input className="search-input" type="text" placeholder="Try Cats"></input>
-				<button id="search-btn">Search</button>
+				<input onChange={ handleChange } className="search-input" type="text" placeholder="Try Cats"></input>
+				<button onClick={ handleClick } id="search-btn">Search</button>
 			</div>
 			<div className="header-right">
 				<div className="header-ico">
