@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 
 import useFetchData from '../../hooks/useFetchData'
 
@@ -7,8 +7,17 @@ import PhotoItem from '../../components/PhotoItem'
 import './Home.css'
 
 const Home = () => {
-	const { photo, error } = useFetchData()
-	console.log(useFetchData)
+	const { photo, setPhoto } = useFetchData()
+	const { error, setError } = useFetchData()
+	const { loading, setLoading } = useFetchData()
+
+	if(loading) {
+		return 'Loading...'
+	}
+	if(error) {
+		return {error}
+	}
+
 	return(
 		<div className='content'>
 			<section className="pines-container">

@@ -1,9 +1,25 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import { Provider } from 'react-redux'
+import { createStore } from 'redux'
+
 import App from './components/App';
 
+import './index.css';
+
+const initialState = {
+	"query": '',
+	"queryResults": {},
+	"principalFeed": [],
+	"profile": []
+}
+
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
+const store = createStore(reducer, initialState, composeEnhancers())
+
 ReactDOM.render(
-  <App />,
-  document.getElementById('root')
+ 	<Provider store={store}>
+		<App />
+ 	</Provider>,
+	document.getElementById('root')
 );

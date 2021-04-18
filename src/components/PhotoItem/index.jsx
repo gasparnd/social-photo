@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 import './PhotoItem.css'
 
@@ -9,12 +10,14 @@ const PhotoItem = props => {
 			<img src={photo.urls.regular} width="400" height="300" alt={photo.alt_description} />
 			<div className="pin-options">
 				<div className="download-pin">
-					<a target="_blank" href={photo.links.download}>Download</a>
+					<a target="_blak" href={photo.links.download}>Download</a>
 				</div>
-				<div className="pin-user">
-					<p>{photo.user.username}</p>
-					<img src={photo.user.profile_image.small} width="25" height="25" alt={`${photo.user.username}'s profile image`} />
-				</div>
+				<Link className='profile-link' to={`/${photo.user.username}`}>
+					<div className="pin-user">
+						<p>{photo.user.username}</p>
+						<img src={photo.user.profile_image.small} width="25" height="25" alt={`${photo.user.username}'s profile`} />
+					</div>
+				</Link>
 			</div>	
 		</article>
 	)

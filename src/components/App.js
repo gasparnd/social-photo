@@ -2,16 +2,16 @@ import React from 'react'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 
 import Home from '../containers/Home'
+import Profile from '../containers/Profile'
 import Layout from './Layout'
-
-import logo from '../assets/statics/logo.svg';
 
 function App() {
   return (
     <BrowserRouter>
       <Switch>
         <Layout>
-          <Route path='/' component={ Home } />
+          <Route exact path='/' component={ Home } />
+          <Route exact path='/:user' component={ Profile } />
         </Layout>
       </Switch>
     </BrowserRouter>

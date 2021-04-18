@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
 import useFetchData from '../../hooks/useFetchData'
 
@@ -7,9 +7,13 @@ import './Header.css'
 const Header = props => {
 
 	const [ search, setSearch ] = useState('')
+	const { photo, setPhoto } = useFetchData()
 
 	const handleClick = e => {
-		
+		console.log('click')
+		setPhoto({
+			query: search
+		})
 	}
 
 	const handleChange = e => {
@@ -35,8 +39,8 @@ const Header = props => {
 				<div className="header-ico">
 					<i className="icon-message"></i>
 				</div>
-				<a href="https://gasparnd.github.io/" target="_blank" className="profile">
-					<img src="https://avatars3.githubusercontent.com/u/36377522?s=460&u=3b1f554c19b5dc2e21bf0aef269f44ee5bf87fdf&v=4" alt="Profile Image" />
+				<a href="https://gasparnd.github.io/" target="_blak" className="profile">
+					<img src="https://avatars3.githubusercontent.com/u/36377522?s=460&u=3b1f554c19b5dc2e21bf0aef269f44ee5bf87fdf&v=4" alt="Profile" />
 				</a>
 			</div>
 		</div>
