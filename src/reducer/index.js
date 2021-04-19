@@ -1,10 +1,10 @@
 const reducer = (state, action) => {
 	switch(action.type){
-		case 'PRINCIPAL_STATE':
-			const API = `https://api.unsplash.com/photos?client_id=OFUMjvzxwguutNlHSxBHkxyQLowhfNAkPLMnG_0i53g&per_page=30&page=1`
+		case 'QUERY_RESULTS':
+			console.log(action.payload)
 			return{
 				...state,
-				principalFeed: ['Test']
+				queryResults: action.payload
 				
 			}
 		default:
