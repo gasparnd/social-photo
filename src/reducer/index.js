@@ -4,14 +4,12 @@ const reducer = (state, action) => {
 			const API = `https://api.unsplash.com/photos?client_id=OFUMjvzxwguutNlHSxBHkxyQLowhfNAkPLMnG_0i53g&per_page=30&page=1`
 			return{
 				...state,
-				principalFeed: fetch(API)
-					.then(response => response.json())
-					.then(data => {
-						data
-					})
+				principalFeed: ['Test']
 				
 			}
 		default:
 			return state
 	}
 }
+
+export default reducer

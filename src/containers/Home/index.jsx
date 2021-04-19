@@ -9,22 +9,22 @@ import PhotoItem from '../../components/PhotoItem'
 import './Home.css'
 
 const Home = props => {
-	/*const { photo, setPhoto } = useFetchData()
+	const { photo, setPhoto } = useFetchData()
 	const { error, setError } = useFetchData()
-	const { loading, setLoading } = useFetchData()*/
+	const { loading, setLoading } = useFetchData()
 	const { principalFeed } = props
 
-	/*if(loading) {
+	if(loading) {
 		return 'Loading...'
 	}
 	if(error) {
 		return {error}
-	}*/
+	}
 
 	return(
 		<div className='content'>
 			<section className="pines-container">
-				{principalFeed.map(item => (
+				{photo.results.map(item => (
 					<PhotoItem key={item.id} photo={item} />
 				))}
 			</section>
@@ -33,11 +33,13 @@ const Home = props => {
 }
 
 const mapStateToProps = state => {
-	principalFeed: state.principalFeed
+	return{	
+		principalFeed: state.principalFeed
+	}
 }
 
 const mapDispatchToProps = {
 	principalFeed,
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Home)
+export default connect(null, null)(Home)

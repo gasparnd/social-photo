@@ -3,7 +3,7 @@ export const principalFeed = payload => ({
 	payload,
 })
 
-export const query = payload => ({
-	type: 'QUERY',
+export const queryResults = payload => ({
+	type: 'QUERY_RESULTS',
 	payload,
 })

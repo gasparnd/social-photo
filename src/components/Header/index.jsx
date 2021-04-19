@@ -1,19 +1,24 @@
 import React, { useState, useEffect } from 'react'
+import { connect } from 'react-redux'
 
-import useFetchData from '../../hooks/useFetchData'
+import { queryResults } from '../../actions'
 
 import './Header.css'
 
 const Header = props => {
 
 	const [ search, setSearch ] = useState('')
-	const { photo, setPhoto } = useFetchData()
 
 	const handleClick = e => {
 		console.log('click')
-		setPhoto({
-			query: search
-		})
+
+		const APISEARCH = `https://api.unsplash.com/search/photos?client_id=OFUMjvzxwguutNlHSxBHkxyQLowhfNAkPLMnG_0i53g&per_page=30&page=1&query=${search}`
+		console.log(APISEARCH)
+		fetch(APISEARCH)
+			.then(response => response.json())
+			.then(data => {
+				props.queryResults({data})
+			})
 	}
 
 	const handleChange = e => {
@@ -47,4 +52,8 @@ const Header = props => {
 	)
 }
 
-export default Header
+const mapDispatchToProps = {
+	queryResults,
+}
+
+export default connect(null, mapDispatchToProps)(Header)
