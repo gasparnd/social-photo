@@ -73,6 +73,10 @@
   text-decoration: none;
 }
 
+.isProfile {
+  display: none;
+}
+
 @media screen and (max-width: 816px) {
 
   .content {

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 
 import { queryResults } from '../../actions'
@@ -27,9 +28,9 @@ const Header = props => {
 
 	return(
 		<div className="header-wraper">
-			<a href="https://photography-library.gasparnd.vercel.app/" className="home-item">
+			<Link to="/" className="home-item">
 				<p>Home</p>
-			</a>
+			</Link>
 			<div className="search">
 				<div className="search-ico">
 					<i className="icon-search"></i>

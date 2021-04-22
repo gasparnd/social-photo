@@ -1,0 +1,98 @@
+.profilePage {
+	display: grid;
+	grid-template-columns: 30vw 1fr;
+	background: #f0f0f0;
+	padding: 1rem;
+}
+
+.profilePage__profile {
+	height: 100vh;
+	background: #f0f0f0;
+}
+
+.profilePage__profile--about {
+	display: flex;
+	flex-direction: column;
+	position: fixed;
+	width: 30vw;
+}
+
+.profilePage__profile--about-image {
+	border-radius: 50%;
+	width: 180px;
+	height: 180px;	
+}
+
+.profilePage__profile--about-fullname {
+	margin: 1rem 0 .5rem;
+}
+
+.profilePage__profile--about-username {
+	margin: 0 0 1rem;
+}
+
+.profilePage__profile--about-bio {
+	width: 100%;
+}
+
+.profilePage__profile--about-numbers {
+	margin-right: 1rem;
+	background: #ddd;
+	padding: .3rem;
+	border-radius: 5px;
+}
+
+.profilePage__profile--about-unsplashprofile {
+	text-decoration: none;
+	color: #f1f1f1;
+	background: #000000;
+	padding: .5rem;
+	border-radius: 5px;
+	text-align: center;
+	width: max-content;
+	margin-top: 1rem;
+}
+
+@media screen and (max-width: 800px) {
+	.profilePage {
+		display: grid;
+		grid-template-columns: 1fr;
+		grid-template-rows: auto 1fr;
+		background: #f0f0f0;
+		padding: 1rem;
+	}
+
+	.profilePage__profile {
+		height: max-content;
+		background: #f0f0f0;
+		padding: 1rem 0 3rem;
+	}
+
+	.profilePage__profile--about {
+		display: grid;
+		grid-template-columns: 200px 1fr;
+		grid-template-rows: repeat(3, auto);
+		width: auto;
+		position: relative;
+		grid-gap: 1rem;
+		height: max-content
+	}
+
+	.profilePage__profile--about-bio {
+		grid-column: 1/3;
+	}
+
+	.profilePage__profile--about-manes {
+		align-self: center;
+	}
+
+	.profilePage__profile--about-info {
+		grid-column: 1/3;
+		grid-row: 3 / 4;
+	}
+
+	.profilePage__profile--about-unsplashprofile {
+		width: auto;
+		margin-top: 0;
+	}
+}

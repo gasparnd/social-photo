@@ -5,6 +5,8 @@ import useInitialState from '../../hooks/useInitialState'
 import PhotosGrid from '../../components/PhotosGrid'
 import PhotoItem from '../../components/PhotoItem'
 
+import './Profile.css'
+
 const fetchUserData = async (setProfile, setPhotos, setLoading, setError, USER_URI, USER_PHOTOS_URI) => {
 	setLoading(true)
 	setError(null)
@@ -51,18 +53,31 @@ const Profile = props => {
 	return(
 		<div className="profilePage">
 			<section className="profilePage__profile">
-				<img src={profile.profile_image.large} alt={profile.name} />
 				<div className="profilePage__profile--about">
-					<h1 className="profilePage__profile--about-fullname">{profile.name}</h1>
-					<p className="profilePage__profile--about-username">{`@${profile.username}`}</p>
-					<span className="profilePage__profile--about-numbers">{`${profile.total_photos} pictures`}</span>
-					<span className="profilePage__profile--about-numbers">{`${profile.followers_count} followers`}</span>
+					<img className="profilePage__profile--about-image" src={profile.profile_image.large} alt={profile.name} />
+					<div className="profilePage__profile--about-manes">
+						<h1 className="profilePage__profile--about-fullname">{profile.name}</h1>
+						<p className="profilePage__profile--about-username">{`@${profile.username}`}</p>
+					</div>
+					<p className="profilePage__profile--about-bio">{profile.bio}</p>
+					<div className="profilePage__profile--about-info">
+						<span className="profilePage__profile--about-numbers">{`${profile.total_photos} pictures`}</span>
+						<span className="profilePage__profile--about-numbers">{`${profile.followers_count} followers`}</span>
+					</div>
+					<a target="_blak" href={`https://unsplash.com/${profile.username}`} 
+						className="profilePage__profile--about-unsplashprofile" 
+					>
+						Unsplash profile
+					</a>
 				</div>
 			</section>
-			<section className="profilePage__feed">
+			<div>
 				<PhotosGrid>
+					{photos.map((ph) => (
+						<PhotoItem isProfile key={ph.id} photo={ph} />
+					))}
 				</PhotosGrid>
-			</section>
+			</div>
 		</div>	
 	)	
 }
