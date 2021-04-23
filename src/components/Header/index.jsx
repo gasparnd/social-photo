@@ -1,8 +1,6 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { connect } from 'react-redux'
-
-import { queryResults } from '../../actions'
+import { SearchTopicUrl, lowerCase } from '../../utils/cleanSearchUrl'
 
 import './Header.css'
 
@@ -10,33 +8,30 @@ const Header = props => {
 
 	const [ search, setSearch ] = useState('')
 
-	const handleClick = e => {
-		console.log('click')
-
-		const APISEARCH = `https://api.unsplash.com/search/photos?client_id=OFUMjvzxwguutNlHSxBHkxyQLowhfNAkPLMnG_0i53g&per_page=30&page=1&query=${search}`
-		console.log(APISEARCH)
-		fetch(APISEARCH)
-			.then(response => response.json())
-			.then(data => {
-				props.queryResults({data})
-			})
-	}
-
 	const handleChange = e => {
 		setSearch(e.target.value)
 	}
 
 	return(
-		<div className="header-wraper">
+		<div className="header">
 			<Link to="/" className="home-item">
 				<p>Home</p>
 			</Link>
-			<div className="search">
-				<div className="search-ico">
-					<i className="icon-search"></i>
+			<div className="search-wrapper">
+				<div className="search">
+					<input onChange={ handleChange } className="search-input" type="text" placeholder="Try Cats"></input>
 				</div>
-				<input onChange={ handleChange } className="search-input" type="text" placeholder="Try Cats"></input>
-				<button onClick={ handleClick } id="search-btn">Search</button>
+				{search && 
+					<div className="search__result">
+						<a className="search__results--result" 
+							href={ `/search/${SearchTopicUrl(search)}` }>
+							{`Search photos of "${search}"`}
+						</a>
+						<a className="search__results--result" 
+							href={`/${lowerCase(search)}`}>{`Search "${search}"`}
+						</a>
+					</div>
+				}
 			</div>
 			<div className="header-right">
 				<div className="header-ico">
@@ -53,8 +48,4 @@ const Header = props => {
 	)
 }
 
-const mapDispatchToProps = {
-	queryResults,
-}
-
-export default connect(null, mapDispatchToProps)(Header)
+export default Header

@@ -1,22 +1,25 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
 
 import useInitialState from '../../hooks/useInitialState'
 
 import PhotoItem from '../../components/PhotoItem'
 import PhotosGrid from '../../components/PhotosGrid'
 
-const Home = props => {
+const QueryResults = props => {
 	const { photo, setPhoto } = useInitialState()
 	const { error, setError } = useInitialState()
 	const { loading, setLoading } = useInitialState()
+	const { query } = props.match.params
 
 	
 	useEffect(() => {
-		const API = `https://api.unsplash.com/photos?client_id=OFUMjvzxwguutNlHSxBHkxyQLowhfNAkPLMnG_0i53g&per_page=30&page=1`
-		fetch(API)
+		const APISEARCH = `https://api.unsplash.com/search/photos?client_id=OFUMjvzxwguutNlHSxBHkxyQLowhfNAkPLMnG_0i53g&per_page=30&page=1&query=${query}`
+		setLoading(true)
+		setError(null)
+		fetch(APISEARCH)
 			.then(response => response.json())
 			.then(data => {
-				setPhoto({results: data})
+				setPhoto(data)
 				setLoading(false)
 			})
 			.catch(err => {
@@ -35,7 +38,7 @@ const Home = props => {
 	return(
 		<div className='content'>
 			<PhotosGrid>
-				{photo.results.map( item => (
+				{photo.results.map(item => (
 					<PhotoItem key={item.id} photo={item} />
 				))}
 			</PhotosGrid>
@@ -43,4 +46,4 @@ const Home = props => {
 	)
 }
 
-export default Home
+export default QueryResults

@@ -1,12 +1,10 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 
 //const CLIENT_ID = 'OFUMjvzxwguutNlHSxBHkxyQLowhfNAkPLMnG_0i53g'
 
 const useInitialState = () => {
 
-
 	const [ photo, setPhoto ] = useState({
-		query: '',
 		results: []
 	})
 	const [ error, setError ] = useState(null)
