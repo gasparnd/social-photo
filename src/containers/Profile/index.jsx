@@ -5,6 +5,8 @@ import useInitialState from '../../hooks/useInitialState'
 import PhotosGrid from '../../components/PhotosGrid'
 import PhotoItem from '../../components/PhotoItem'
 import Loader from '../../components/Loader'
+import Error404 from '../../components/Errors/Error404'
+import ErrorPage from '../../components/Errors/ErrorPage'
 
 import './Profile.css'
 
@@ -48,7 +50,11 @@ const Profile = props => {
 	}
 
 	if(error) {
-		return `Error: ${error}`
+		return( <ErrorPage error={error} />)
+	}
+
+	if(!profile.name) {
+		return( <Error404 />)
 	}
 
 	return(

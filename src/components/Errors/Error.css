@@ -1,0 +1,42 @@
+.Error {
+	height: 80vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 1rem;
+}
+
+.Error__span--message {
+	margin: 0 2rem;
+	font-size: 2rem;
+	font-weight: bold; 
+}
+
+.Error__span--draw {
+	font-size: 5.5rem;
+}
+
+.Error__link {
+	margin-top: 3rem;
+}
+
+.Error__link--link {
+	text-decoration: none;
+	color: #fff;
+	background: #000;
+	padding: .5rem;
+	border: 1px solid #000;
+	border-radius: 5px;
+}
+
+@media screen and (max-width: 630px) {
+	.Error__span--message {
+		display: flex;
+		flex-direction: column;
+		margin: 1rem 0 0 0;
+	}
+
+	.Error__span--draw {
+		font-size: 5.5rem;
+	}
+}
