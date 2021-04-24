@@ -9,7 +9,8 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	flex-direction: column;}
+	flex-direction: column;
+}
 
 .Modal__container {
 	background: white;
@@ -23,6 +24,7 @@
 
 .Modal__close-button {
 	align-self: flex-end;
+	margin-bottom: 1rem;
 	display: flex;
 	align-items: center;
 	justify-content: center;

@@ -28,18 +28,12 @@ const Header = props => {
 							{`Search photos of "${search}"`}
 						</a>
 						<a className="search__results--result" 
-							href={`/${lowerCase(search)}`}>{`Search "${search}"`}
+							href={`/${lowerCase(search)}`}>{`Search "@${search}"`}
 						</a>
 					</div>
 				}
 			</div>
 			<div className="header-right">
-				<div className="header-ico">
-					<i className="icon-bell"></i>
-				</div>
-				<div className="header-ico">
-					<i className="icon-message"></i>
-				</div>
 				<a href="https://gasparnd.github.io/" target="_blak" className="profile">
 					<img src="https://avatars3.githubusercontent.com/u/36377522?s=460&u=3b1f554c19b5dc2e21bf0aef269f44ee5bf87fdf&v=4" alt="Profile" />
 				</a>

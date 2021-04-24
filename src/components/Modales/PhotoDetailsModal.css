@@ -1,9 +1,13 @@
 .PhotoContainer {
 	overflow: scroll;
-	margin: 0 auto;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 100%;
 }
 
-.PhotoContainer__photo {
+.PhotoContainer__photo img {
 	width: 100%;
 	height: 100%;
 }
