@@ -1,0 +1,39 @@
+.Modal {
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 10;
+	background: rgba(0,0,0,.5);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;}
+
+.Modal__container {
+	background: white;
+	border-radius: 20px;
+	width: 90%;
+	height: 90%;
+	display: flex;
+	flex-direction: column;
+	padding: .5rem;
+}
+
+.Modal__close-button {
+	align-self: flex-end;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: #fb3640;
+	color: white;
+	font-weight: bold;
+	border: 1px solid #fb3640;
+	border-radius: 50px;
+	padding: 1rem;
+	width: 40px;
+	height: 40px;
+	outline: none;
+	cursor: pointer;
+}
