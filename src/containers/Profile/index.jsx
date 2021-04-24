@@ -4,6 +4,7 @@ import useInitialState from '../../hooks/useInitialState'
 
 import PhotosGrid from '../../components/PhotosGrid'
 import PhotoItem from '../../components/PhotoItem'
+import Loader from '../../components/Loader'
 
 import './Profile.css'
 
@@ -43,7 +44,7 @@ const Profile = props => {
 	}, [])
 
 	if(loading) {
-		return 'Loading...'
+		return( <Loader />)
 	}
 
 	if(error) {

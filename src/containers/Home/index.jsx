@@ -4,6 +4,7 @@ import useInitialState from '../../hooks/useInitialState'
 
 import PhotoItem from '../../components/PhotoItem'
 import PhotosGrid from '../../components/PhotosGrid'
+import Loader from '../../components/Loader'
 
 const Home = props => {
 	const { photo, setPhoto } = useInitialState()
@@ -26,7 +27,7 @@ const Home = props => {
 	}, []) 
 	
 	if(loading) {
-		return 'Loading...'
+		return (<Loader />)
 	}
 	if(error) {
 		return {error}
