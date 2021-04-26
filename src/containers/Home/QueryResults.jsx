@@ -26,7 +26,7 @@ const QueryResults = props => {
 				setError(err)
 				setLoading(false)
 			})
-	}, []) 
+	}, [setError, setPhoto, setLoading, query]) 
 	
 	if(loading) {
 		return 'Loading...'

@@ -11,7 +11,7 @@ const PhotoDetailsModal = ({ isOpen, handleClose, data}) => {
 		>
 			<div className="PhotoContainer">
 				<section className="PhotoContainer__photo">
-					<img src={data.urls.regular} />
+					<img src={data.urls.regular} alt={data.alt_description} />
 				</section>
 			</div>
 		</Modal>

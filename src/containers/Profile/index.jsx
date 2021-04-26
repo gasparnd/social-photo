@@ -40,10 +40,7 @@ const Profile = props => {
 
 	useEffect(() => {
 		fetchUserData(setProfile, setPhotos, setLoading, setError, USER_URI, USER_PHOTOS_URI)
-
-		console.log(profile)
-		console.log(photos)
-	}, [])
+	}, [setError, setLoading, USER_URI, USER_PHOTOS_URI])
 
 	if(loading) {
 		return( <Loader />)

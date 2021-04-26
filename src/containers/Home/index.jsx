@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
 
 import useInitialState from '../../hooks/useInitialState'
 
@@ -25,7 +25,7 @@ const Home = props => {
 				setError(err)
 				setLoading(false)
 			})
-	}, []) 
+	}, [setPhoto, setError, setLoading]) 
 	
 	if(loading) {
 		return (<Loader />)
