@@ -4,6 +4,8 @@ import useInitialState from '../../hooks/useInitialState'
 
 import PhotoItem from '../../components/PhotoItem'
 import PhotosGrid from '../../components/PhotosGrid'
+import Loader from '../../components/Loader'
+import ErrorPage from '../../components/Errors/ErrorPage'
 
 const QueryResults = props => {
 	const { photo, setPhoto } = useInitialState()
@@ -29,10 +31,10 @@ const QueryResults = props => {
 	}, [setError, setPhoto, setLoading, query]) 
 	
 	if(loading) {
-		return 'Loading...'
+		return( <Loader />)
 	}
 	if(error) {
-		return {error}
+		return( <ErrorPage error={error} />)
 	}
 
 	return(
