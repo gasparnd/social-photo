@@ -8,3 +8,17 @@
 	padding: .5rem;
 	border-radius: 25px;
 }
+
+@media screen and (max-width: 816px) {
+
+  .content {
+    padding: .5rem 1rem;
+  }
+
+  .pines-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+}
